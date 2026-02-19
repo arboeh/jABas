@@ -1,0 +1,40 @@
+{
+  "name": "jabas",
+  "version": "1.0.0",
+  "description": "JavaScript Automation Bridges for Shelly Gen2 (Home Assistant MQTT Integration)",
+  "main": "scripts/mqtt/jaalee-jht-mqtt-bridge.shelly.js",
+  "repository": "https://github.com/arboeh/jABas",
+  "author": "arboeh arend.boehmer@web.de",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js",
+    "test:watch": "mocha tests/**/*.test.js --watch",
+    "coverage": "nyc --reporter=lcov --reporter=text mocha tests/**/*.test.js",
+    "lint": "eslint .",
+    "check-allterco": "python tools/check-manifest-integrity.py --check-all"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "nyc": "^15.1.0",
+    "eslint": "^8.57.0"
+  },
+  "nyc": {
+    "include": [
+      "jABas-core.js",
+      "scripts/**/*.js"
+    ],
+    "exclude": [
+      "**/*.shelly.js",
+      "tests/**",
+      "node_modules/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ],
+    "all": true,
+    "check-coverage": false
+  }
+}

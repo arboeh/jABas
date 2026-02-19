@@ -1,0 +1,8 @@
+[
+  {
+    "fname": "scripts/mqtt/jaalee-jht-mqtt-bridge.shelly.js",
+    "title": "Jaalee JHT BLE → MQTT Bridge",
+    "description": "Jaalee JHT temperature/humidity/battery via Shelly BLU → HA MQTT Discovery.",
+    "doc": "scripts/mqtt/README.md"
+  }
+]
