@@ -1,7 +1,7 @@
 // jABas-core.js
 
 const JaaleeCore = {
-  VERSION: '1.3.2',
+  VERSION: '1.0.0',
 
   // Konstanten
   CONSTANTS: {
