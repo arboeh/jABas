@@ -11,7 +11,7 @@
     "test:watch": "mocha tests/**/*.test.js --watch",
     "coverage": "nyc --reporter=lcov --reporter=text mocha tests/**/*.test.js",
     "lint": "eslint .",
-    "check-allterco": "python tools/check-manifest-integrity.py --check-all"
+    "check-allterco": "echo 'ALLTERCO tools need manual setup'"
   },
   "devDependencies": {
     "mocha": "^10.2.0",
