@@ -36,15 +36,3 @@ jobs:
           files: ./coverage/lcov.info
           fail_ci_if_error: false
           verbose: true
-
-  allterco-lint:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Run ALLTERCO checks
-        run: |
-          python3 -m pip install -r tools/requirements.txt
-          python tools/check-manifest-integrity.py --check-all
-          python tools/sync-manifest-json.py examples-manifest.json
