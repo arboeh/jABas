@@ -913,11 +913,21 @@ function init() {
 
     // Show enabled optional sensors
     const optionalSensors = [];
-    if (CONFIG.mqtt.publish_rssi) optionalSensors.push('RSSI');
-    if (CONFIG.mqtt.publish_last_seen) optionalSensors.push('Last Seen');
-    if (CONFIG.mqtt.publish_link_quality) optionalSensors.push('Link Quality');
-    if (CONFIG.mqtt.publish_battery_low) optionalSensors.push('Battery Low');
-    if (CONFIG.mqtt.publish_data_age) optionalSensors.push('Data Age');
+    if (CONFIG.mqtt.publish_rssi) {
+        optionalSensors.push('RSSI');
+    }
+    if (CONFIG.mqtt.publish_last_seen) {
+        optionalSensors.push('Last Seen');
+    }
+    if (CONFIG.mqtt.publish_link_quality) {
+        optionalSensors.push('Link Quality');
+    }
+    if (CONFIG.mqtt.publish_battery_low) {
+        optionalSensors.push('Battery Low');
+    }
+    if (CONFIG.mqtt.publish_data_age) {
+        optionalSensors.push('Data Age');
+    }
 
     if (optionalSensors.length > 0) {
         LOGGER.info('Optional sensors enabled: ' + optionalSensors.join(', '));
