@@ -1,0 +1,8 @@
+# scripts/ nur von dir releasbar
+/scripts/ @arboeh
+
+# Tests jeder darf ändern
+/tests/ @arboeh
+
+# README Reviews von Maintainer
+README.md @arboeh
