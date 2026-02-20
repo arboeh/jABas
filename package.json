@@ -1,14 +1,13 @@
 {
   "name": "jabas",
   "version": "1.0.0",
-  "description": "JavaScript Automation Bridges for Shelly Gen2 (Home Assistant MQTT Integration)",
-  "main": "scripts/mqtt/jaalee-jht-mqtt-bridge.shelly.js",
+  "license": "MIT",
+  "description": "JavaScript Automation Scripts for Shelly, ESPHome & more",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arboeh/jABas.git"
   },
   "author": "arboeh arend.boehmer@web.de",
-  "license": "MIT",
   "scripts": {
     "test": "mocha tests/**/*.test.js",
     "test:watch": "mocha tests/**/*.test.js --watch",
