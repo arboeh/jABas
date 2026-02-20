@@ -1,7 +1,7 @@
 # jABas – Shelly Scripts
 
-[![Tests](https://github.com/arboeh/jABas/actions/workflows/ci.yml/badge.svg)](https://github.com/arboeh/jABas/actions)
-[![Coverage](https://coverage.codecov.io/gh/arboeh/jABas/branch/main/graph/badge.svg)](https://codecov.io/gh/arboeh/jABas)
+![Tests](https://github.com/arboeh/jABas/workflows/CI/badge.svg)
+![Coverage](https://img.shields.io/codecov/c/gh/arboeh/jABas/main.svg)
 
 Tested Shelly mJS Scripts with 40+ unit tests & 31% coverage.
 
