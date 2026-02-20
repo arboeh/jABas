@@ -177,7 +177,7 @@
     "normalize-path": "^3.0.0",
     "once": "^1.4.0",
     "optionator": "^0.9.4",
-    "p-limit": "^3.1.0",
+    "p-limit": "^7.3.0",
     "p-locate": "^5.0.0",
     "p-map": "^3.0.0",
     "p-try": "^2.2.0",
