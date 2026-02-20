@@ -3,7 +3,7 @@
 ![Tests](https://github.com/arboeh/jABas/workflows/CI/badge.svg)
 ![Coverage](https://img.shields.io/codecov/c/gh/arboeh/jABas/main.svg)
 
-Tested Shelly mJS Scripts with 40+ unit tests & 31% coverage.
+**Tested Shelly mJS Scripts** with 40+ unit tests & 31% coverage.
 
 ## Scripts
 
