@@ -39,13 +39,3 @@ jobs:
         with:
           files: ./coverage/lcov.info
           fail_ci_if_error: true # ← strengere Überprüfung
-
-  # Badge für README
-  badge:
-    needs: test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: tj-actions/coverage-badge-py@v1
-        with:
-          green: 50 # grün bei >50%
