@@ -1,0 +1,62 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "plugins": [
+        "jsdoc"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:jsdoc/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module"
+    },
+    "globals": {
+        "MQTT": "readonly",
+        "Shelly": "readonly",
+        "BLE": "readonly",
+        "Timer": "readonly"
+    },
+    "rules": {
+        "jsdoc/require-jsdoc": [
+            "warn",
+            {
+                "require": {
+                    "FunctionDeclaration": true,
+                    "MethodDefinition": true,
+                    "ArrowFunctionExpression": false
+                }
+            }
+        ],
+        "jsdoc/require-param": "warn",
+        "jsdoc/require-param-type": "warn",
+        "jsdoc/require-returns": "warn",
+        "jsdoc/check-tag-names": [
+            "error",
+            {
+                "definedTags": [
+                    "title",
+                    "status",
+                    "link"
+                ]
+            }
+        ],
+        "jsdoc/check-types": "warn",
+        "spaced-comment": [
+            "warn",
+            "always"
+        ],
+        "no-inline-comments": "off",
+        "capitalized-comments": [
+            "warn",
+            "always",
+            {
+                "ignorePattern": "eslint|prettier|noinspection",
+                "ignoreInlineComments": true
+            }
+        ]
+    }
+}

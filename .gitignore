@@ -26,9 +26,12 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini          # ← neu: Windows Ordner-Metadaten
 
 # Editor/IDE
 .vscode/
+!.vscode/settings.json    # ← neu: settings.json explizit teilen
+!.vscode/extensions.json  # ← neu: empfohlene Extensions teilen
 .idea/
 *.swp
 *.swo
@@ -40,3 +43,7 @@ SHELLY_MJS.md
 .pnp.*
 .npm
 .eslintcache
+.prettiercache           # ← neu: Prettier-Cache
+
+# Testing
+*.test.js.snap           # ← neu: Jest Snapshots (falls später genutzt)
