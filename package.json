@@ -12,7 +12,7 @@
   "scripts": {
     "test": "mocha tests/**/*.test.js",
     "test:watch": "mocha tests/**/*.test.js --watch",
-    "coverage": "nyc --reporter=lcov --reporter=text mocha tests/**/*.test.js",
+    "coverage": "nyc mocha tests/**/*.test.js",
     "lint": "eslint .",
     "check-allterco": "echo 'ALLTERCO tools need manual setup'"
   },
