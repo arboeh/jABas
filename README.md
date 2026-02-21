@@ -31,7 +31,7 @@
 | **Bash**       | Shell scripts for add-ons |
 | **Blueprints** | HA Automation Blueprints  |
 
-## 🚀 Deploy a Shelly Script
+## Deploy a Shelly Script
 
 1. Open the script from [`scripts/mqtt/`](scripts/mqtt/)
 2. Copy the content
@@ -45,7 +45,7 @@ curl -X POST http://<SHELLY-IP>/rpc/Script.Create \
   -d '{"name":"jaalee-jht"}'
 ```
 
-## 🧪 Development
+## Development
 
 ```bash
 # Run tests
@@ -61,6 +61,6 @@ npm run lint       # ESLint 0 errors
 > Hardware-dependent code (MQTT, BLE, Shelly APIs) cannot be unit tested
 > and must be validated directly on the device.
 
-## 📄 License
+## License
 
 MIT © [arboeh](https://github.com/arboeh) – see [LICENSE](LICENSE)
