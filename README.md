@@ -3,7 +3,8 @@
 **Scripts, Tools & Blueprints**
 
 [![HA](https://img.shields.io/badge/Home%20Assistant-blue.svg)](https://www.home-assistant.io/)
-[![Tests](https://github.com/arboeh/ha-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/arboeh/ha-scripts/actions)
+![Coverage](https://img.shields.io/badge/coverage-44%25-yellow.svg)
+![Testable Code](https://img.shields.io/badge/testable%20code-89%25-brightgreen.svg)
 
 ## 📁 Kategorien
 

@@ -152,10 +152,12 @@ function convertTemperature(celsius, unit) {
 
 /**
  * Get temperature unit symbol based on configuration
+ * @param unit Optional unit argument to override config (e.g., for testing), defaults to config value
  * @returns {string} Temperature unit symbol (°C or °F)
  */
-function getTemperatureUnit() {
-  return CONFIG.temperature.unit === "fahrenheit" ? "°F" : "°C";
+function getTemperatureUnit(unit) {
+  const targetUnit = unit || CONFIG.temperature.unit;
+  return targetUnit === "fahrenheit" ? "°F" : "°C";
 }
 
 /**

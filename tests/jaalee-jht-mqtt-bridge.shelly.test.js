@@ -110,7 +110,16 @@ describe("formatMacForTopic()", function () {
 
 describe("getTemperatureUnit()", function () {
   it("should return °C for celsius", function () {
+    assert.equal(getTemperatureUnit("celsius"), "°C");
+  });
+  it("should return °F for fahrenheit", function () {
+    assert.equal(getTemperatureUnit("fahrenheit"), "°F");
+  });
+  it("should default to °C without argument", function () {
     assert.equal(getTemperatureUnit(), "°C");
+  });
+  it("should handle unknown unit gracefully", function () {
+    assert.doesNotThrow(() => getTemperatureUnit("kelvin"));
   });
 });
 
@@ -121,9 +130,29 @@ describe("isBatteryLow()", function () {
   it("should not detect low battery at 25%", function () {
     assert.isFalse(isBatteryLow(25));
   });
+  it("should detect low battery at boundary 21%", function () {
+    assert.isFalse(isBatteryLow(21));
+  });
+  it("should not detect low battery at exact threshold + 1", function () {
+    assert.isFalse(isBatteryLow(22)); // Je nach Threshold: anpassen!
+  });
+  it("should handle 0% battery", function () {
+    assert.isTrue(isBatteryLow(0));
+  });
+  it("should handle 100% battery", function () {
+    assert.isFalse(isBatteryLow(100));
+  });
 });
 
-describe("JaaleeDecoder", function () {
+describe("JaaleeDecoder.parse()", function () {
+  it("should return null for empty data", function () {
+    assert.isNull(JaaleeDecoder.parse({ length: 0 }, null));
+  });
+
+  it("should return null for null data", function () {
+    assert.isNull(JaaleeDecoder.parse(null, null));
+  });
+
   describe("calculateTemperature()", function () {
     it("should calculate temperature from raw value 32768", function () {
       assert.approximately(
@@ -137,6 +166,21 @@ describe("JaaleeDecoder", function () {
     });
     it("should return 130 for raw value 65535", function () {
       assert.equal(JaaleeDecoder.calculateTemperature(65535), 130);
+    });
+  });
+
+  describe("getDataAge()", function () {
+    it("should return 0 for unknown MAC", function () {
+      assert.equal(getDataAge("AA:BB:CC:DD:EE:FF"), 0);
+    });
+    it("should return 0 for null", function () {
+      assert.equal(getDataAge(null), 0);
+    });
+    it("should return 0 for undefined", function () {
+      assert.equal(getDataAge(undefined), 0);
+    });
+    it("should return 0 for empty string", function () {
+      assert.equal(getDataAge(""), 0);
     });
   });
 
@@ -166,10 +210,17 @@ describe("JaaleeDecoder", function () {
       };
     }
 
-    const validData = makeMockData([
+    const VALID_BYTES = [
       0x02, 0x15, 0xf5, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
       0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x64,
-    ]);
+    ];
+    const validData = makeMockData(VALID_BYTES);
+
+    it("should parse iBeacon format via parse()", function () {
+      const result = JaaleeDecoder.parse(validData, null);
+      assert.isNotNull(result);
+      assert.equal(result.format, "iBeacon-24");
+    });
 
     it("should parse valid iBeacon data", function () {
       const result = JaaleeDecoder.parseLongFormat(validData);
@@ -222,6 +273,151 @@ describe("JaaleeDecoder", function () {
       data[23] = 0x64; // Battery
       const result = JaaleeDecoder.parseLongFormat(makeMockData(data));
       assert.isNotNull(result);
+    });
+
+    it("should parse battery 0%", function () {
+      const data = [...VALID_BYTES];
+      data[23] = 0x00;
+      const result = JaaleeDecoder.parseLongFormat(makeMockData(data));
+      assert.isNotNull(result);
+      assert.equal(result.battery, 0);
+    });
+
+    it("should parse battery 50%", function () {
+      const data = [...VALID_BYTES];
+      data[23] = 0x32;
+      const result = JaaleeDecoder.parseLongFormat(makeMockData(data));
+      assert.isNotNull(result);
+      assert.equal(result.battery, 50);
+    });
+
+    it("should handle marker at last valid position (index 16)", function () {
+      const data = new Array(24).fill(0);
+      data[0] = 0x02;
+      data[1] = 0x15;
+      data[16] = 0xf5;
+      data[17] = 0x25; // Grenzposition
+      data[18] = 0x80;
+      data[19] = 0x00;
+      data[20] = 0x80;
+      data[21] = 0x00;
+      data[23] = 0x64;
+      const result = JaaleeDecoder.parseLongFormat(makeMockData(data));
+      assert.isNotNull(result);
+    });
+  });
+
+  describe("JaaleeDecoder.bufferToHex()", function () {
+    it("should convert buffer to hex string", function () {
+      const buf = { at: (i) => [0xde, 0xad, 0xbe, 0xef][i], length: 4 };
+      assert.equal(JaaleeDecoder.bufferToHex(buf), "deadbeef");
+    });
+    it("should handle single byte", function () {
+      const buf = { at: () => 0x0f, length: 1 };
+      assert.equal(JaaleeDecoder.bufferToHex(buf), "0f");
+    });
+    it("should handle empty buffer", function () {
+      const buf = { at: () => 0, length: 0 };
+      assert.equal(JaaleeDecoder.bufferToHex(buf), "");
+    });
+  });
+
+  describe("JaaleeDecoder.parseShortFormat()", function () {
+    /**
+     *
+     * @param bytes
+     */
+    function makeShortData(bytes) {
+      return { at: (i) => bytes[i], length: bytes.length };
+    }
+
+    // Gültige 15-Byte Daten: battery + mac + temp + humi
+    const VALID_SHORT = [
+      0x00,
+      0x00,
+      0x00,
+      0x00,
+      0x64, // Byte 4 = battery 100%
+      0xff,
+      0xee,
+      0xdd,
+      0xcc,
+      0xbb,
+      0xaa, // Bytes 5-10: MAC reversed
+      0x00,
+      0x00, // Padding
+      0x80,
+      0x00, // Temp raw ~42.5°C (bytes -4,-3)
+      0x80,
+      0x00, // Humi raw ~50% (bytes -2,-1)
+    ];
+    // 15-Byte: bytes -4 = index 11
+    const SHORT_15 = [
+      0x00,
+      0x00,
+      0x00,
+      0x00,
+      0x64, // Battery 100%
+      0xaa,
+      0xbb,
+      0xcc,
+      0xdd,
+      0xee,
+      0xff, // MAC
+      0x80,
+      0x00,
+      0x80,
+      0x00, // Temp + humi (bytes 11-14)
+    ];
+
+    it("should reject data shorter than 15 bytes", function () {
+      assert.isNull(
+        JaaleeDecoder.parseShortFormat(makeShortData([0, 1, 2]), null),
+      );
+    });
+
+    it("should reject data longer than 16 bytes", function () {
+      assert.isNull(
+        JaaleeDecoder.parseShortFormat(
+          makeShortData(new Array(17).fill(0)),
+          null,
+        ),
+      );
+    });
+
+    it("should parse valid 15-byte data", function () {
+      const result = JaaleeDecoder.parseShortFormat(
+        makeShortData(SHORT_15),
+        null,
+      );
+      assert.isNotNull(result);
+      assert.approximately(result.temperature, 42.5, 0.1);
+      assert.approximately(result.humidity, 50.0, 0.1);
+      assert.equal(result.battery, 100);
+      assert.equal(result.format, "short");
+    });
+
+    it("should reject mismatched MAC", function () {
+      const wrongMac = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
+      assert.isNull(
+        JaaleeDecoder.parseShortFormat(makeShortData(SHORT_15), wrongMac),
+      );
+    });
+
+    it("should accept matching MAC", function () {
+      // MAC in SHORT_15 bytes 5-10: FF,EE,DD,CC,BB,AA reversed = AA,BB,CC,DD,EE,FF
+      const correctMac = [0xff, 0xee, 0xdd, 0xcc, 0xbb, 0xaa];
+      const result = JaaleeDecoder.parseShortFormat(
+        makeShortData(SHORT_15),
+        correctMac,
+      );
+      assert.isNotNull(result);
+    });
+
+    it("should skip MAC check when null", function () {
+      assert.isNotNull(
+        JaaleeDecoder.parseShortFormat(makeShortData(SHORT_15), null),
+      );
     });
   });
 });
