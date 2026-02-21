@@ -7,7 +7,7 @@
 - Parses iBeacon-format BLE advertisements from Jaalee JHT sensors  
 - Temperature, humidity, battery level
 - RSSI, Link Quality, Data Age (optional)
-- **HA MQTT Auto-Discovery** – zero-config in Home Assistant
+- **HA MQTT Auto-Discovery** - zero-config in Home Assistant
 - Battery low warning sensor
 - Timeout monitoring (5min → offline)
 

@@ -28,20 +28,22 @@ def main():
     print("Can not find the file")
     return
 
-
   try:
-    with open(args.file, mode = "r") as file:
+    with open(args.file, mode="r") as file:
       json_data = json.loads(file.read())
   except Exception as e:
     print(e)
-
+    return
 
   if json_data:
-    newFile = "/".join(args.file.split("/")[:-1]) + "/SHELLY_MJS.md"
-    with open(newFile, mode = "w+") as file:
+    # Fix: Use os.path.dirname + os.path.join
+    manifest_dir = os.path.dirname(os.path.abspath(args.file))
+    newFile = os.path.join(manifest_dir, "SHELLY_MJS.md")
+    
+    with open(newFile, mode="w+", encoding="utf-8") as file:
       for data in json_data:
-        file.write(data["fname"] + ": " + data["title"] + "\n===\n" + data["description"] + "\n\n")
-  
+        file.write(f'{data["fname"]}: {data["title"]}\n===\n{data["description"]}\n\n')
+    print(f'Generated: {newFile}')
 
 if __name__ == "__main__":
   main()

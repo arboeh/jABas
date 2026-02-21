@@ -1,1 +1,1 @@
-[{"fname":"scripts/mqtt/jaalee-jht-mqtt-bridge.shelly.js","title":"Jaalee JHT BLE → MQTT","description":"Jaalee JHT temperature/humidity/battery via Shelly BLU → HA MQTT.","doc":"scripts/mqtt/README.md"}]
+[{"fname":"scripts/mqtt/jaalee-jht-mqtt-bridge.shelly.js","title":"Jaalee JHT BLE to MQTT","description":"Jaalee JHT temperature/humidity/battery via Shelly BLU to HA MQTT.","doc":"scripts/mqtt/README.md"}]
