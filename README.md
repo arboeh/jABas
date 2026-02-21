@@ -1,4 +1,4 @@
-# 🛠️ Scripts for Home Assistant
+# 🛠️ jABas - My Scripts for Home Assistant
 
 **Scripts, Tools & Blueprints**
 
