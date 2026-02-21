@@ -2,9 +2,12 @@
 
 **Scripts, Tools & Blueprints**
 
-[![HA](https://img.shields.io/badge/Home%20Assistant-blue.svg)](https://www.home-assistant.io/)
-![Coverage](https://img.shields.io/badge/coverage-44%25-yellow.svg)
-![Testable Code](https://img.shields.io/badge/testable%20code-89%25-brightgreen.svg)
+[![Tests](https://github.com/arboeh/jABas/workflows/Tests/badge.svg)](https://github.com/arboeh/jABas/actions)
+[![codecov](https://codecov.io/gh/arboeh/jABas/branch/main/graph/badge.svg)](https://codecov.io/gh/arboeh/jABas)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-Compatible-41BDF5.svg)](https://www.home-assistant.io/)
+[![Shelly](https://img.shields.io/badge/Shelly-BLU%20Gateway-00A0E3.svg)](https://shelly.cloud/)
 
 ## 📁 Kategorien
 
