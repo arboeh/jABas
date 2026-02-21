@@ -1,41 +1,34 @@
-# jABas – Shelly Scripts
+# 🛠️ Scripts for Home Assistant
 
-![Tests](https://github.com/arboeh/jABas/workflows/CI/badge.svg)
-![Coverage](https://img.shields.io/codecov/c/gh/arboeh/jABas/main.svg)
+**Community Collection: Scripts, Tools & Blueprints**
 
-**Tested Shelly mJS Scripts** with 40+ unit tests & 31% coverage.
+[![HA](https://img.shields.io/badge/Home%20Assistant-blue.svg)](https://www.home-assistant.io/)
+[![Tests](https://github.com/arboeh/ha-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/arboeh/ha-scripts/actions)
 
-## Scripts
+## 📁 Kategorien
 
-| Script | Description | Tests |
-|---|---|---|
-| [Jaalee JHT BLE→MQTT](scripts/mqtt/README.md) | BLE temp/humidity → HA Discovery | 40/40 ✅ |
+| Kategorie | Beschreibung | Beispiele |
+|-----------|-------------|-----------|
+| **Shelly mJS** | Shelly Scripts mit HA MQTT Discovery | [Jaalee JHT](scripts/shelly/jaalee-jht-mqtt/) |
+| **Python** | HA Python Scripts | `script.py` |
+| **Bash** | Shell-Scripts für Addons | `backup.sh` |
+| **Blueprints** | HA Automation Blueprints | `automation.yaml` |
+| **Node-RED** | Flow-Exports | `flow.json` |
 
-## Quick Start
-
-```bash
-git clone https://github.com/arboeh/jABas
-cd jABas
-npm i
-npm test          # 40/40
-npm run coverage  # 31%
-```
-
-## Deploy
+## 🚀 Quickstart
 
 ```bash
-cp scripts/mqtt/jaalee-jht-mqtt-bridge.shelly.js /tmp/shelly/
-# Shelly → Scripts → Import
+# Shelly Script deployen
+curl -s https://raw.githubusercontent.com/arboeh/ha-scripts/main/scripts/shelly/jaalee-jht-mqtt-bridge.shelly.js | ssh shelly sh
+
+# HA Blueprint importieren
+# configuration.yaml → !include_dir_merge_named blueprints
 ```
 
-## Development
+## 📊 Status
 
-```
-VS Code + rvest.vs-code-prettier-eslint
-npm run test:watch
-npm run lint
-```
+- **40/40 Tests** ✅
+- **ESLint** 0 Errors ✅
+- **Coverage** 31% 📈
 
-## License
-
-MIT © 2026 arboeh
+**Beitrag**: PRs willkommen! [CONTRIBUTING.md](CONTRIBUTING.md)
