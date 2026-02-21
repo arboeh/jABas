@@ -1,6 +1,16 @@
+# .github/dependabot.yml
 version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: "chai"
+        versions: [">=5.0.0"]
+      - dependency-name: "eslint"
+        versions: [">=9.0.0"]
+      - dependency-name: "mocha"
+        versions: [">=11.0.0"]
+      - dependency-name: "nyc"
+        versions: [">=16.0.0"]
