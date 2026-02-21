@@ -47,4 +47,3 @@ jobs:
         run: |
           python tools/sync-manifest-json.py examples-manifest.json
           git add SHELLY_MJS.md
-          git diff --staged --quiet || git commit -m "docs: regenerate SHELLY_MJS.md"
