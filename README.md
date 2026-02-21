@@ -4,9 +4,8 @@
 
 **My personal collection of scripts, tools & blueprints for Home Assistant**
 
-[![Tests](https://github.com/arboeh/jABas/actions/workflows/ci.yml/badge.svg)](https://github.com/arboeh/jABas/actions)
-[![codecov](https://codecov.io/gh/arboeh/jABas/branch/main/graph/badge.svg)](https://codecov.io/gh/arboeh/jABas)
 ![Testable Code](https://img.shields.io/badge/testable%20code-89%25-brightgreen.svg)
+[![codecov](https://codecov.io/gh/arboeh/jABas/branch/main/graph/badge.svg)](https://codecov.io/gh/arboeh/jABas)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18-brightgreen)](https://nodejs.org/)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-Compatible-41BDF5.svg)](https://www.home-assistant.io/)
