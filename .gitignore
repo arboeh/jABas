@@ -29,8 +29,6 @@ desktop.ini
 .idea/
 *.swp
 *.swo
-# ALLTERCO Tools (optional)
-!SHELLY_MJS.md
 # Runtime data
 .pnp.*
 .npm
