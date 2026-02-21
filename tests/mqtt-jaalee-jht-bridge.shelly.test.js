@@ -12,7 +12,7 @@ const {
   getTemperatureUnit,
   isBatteryLow,
   getDataAge,
-} = require("../scripts/mqtt/jaalee-jht-mqtt-bridge.shelly.js");
+} = require("../scripts/mqtt/mqtt-jaalee-jht-bridge.shelly.js");
 
 describe("roundTo2Decimals()", function () {
   it("should round 1.234 to 1.23", function () {

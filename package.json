@@ -13,8 +13,7 @@
     "test:watch": "mocha tests/**/*.test.js --watch",
     "coverage": "nyc mocha tests/**/*.test.js",
     "lint": "eslint .",
-    "format:md": "prettier --write \"**/*.md\"",
-    "check-allterco": "echo 'ALLTERCO tools need manual setup'"
+    "format:md": "prettier --write \"**/*.md\""
   },
   "devDependencies": {
     "chai": "^4.5.0",
