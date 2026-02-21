@@ -65,7 +65,7 @@ const CONFIG = {
 
   // Temperature unit configuration
   temperature: {
-    unit: "celsius", // 'celsius' or 'fahrenheit'
+    unit: "celsius", // 'celsius', 'fahrenheit' or 'kelvin'
   },
 
   mqtt: {
@@ -139,7 +139,7 @@ function roundTo2Decimals(value) {
 /**
  * Convert Celsius to Fahrenheit if configured
  * @param {number} celsius Temperature in Celsius
- * @param unit
+ * @param {string} unit Optional unit argument to override config (e.g., for testing), defaults to config value
  * @returns {number} Temperature in configured unit
  */
 function convertTemperature(celsius, unit) {
@@ -147,17 +147,22 @@ function convertTemperature(celsius, unit) {
   if (targetUnit === "fahrenheit") {
     return roundTo2Decimals((celsius * 9) / 5 + 32);
   }
+  if (targetUnit === "kelvin") {
+    return roundTo2Decimals(celsius + 273.15);
+  }
   return celsius;
 }
 
 /**
  * Get temperature unit symbol based on configuration
- * @param unit Optional unit argument to override config (e.g., for testing), defaults to config value
- * @returns {string} Temperature unit symbol (°C or °F)
+ * @param {string} unit Optional unit argument to override config (e.g., for testing), defaults to config value
+ * @returns {string} Temperature unit symbol (°C or °F or K)
  */
 function getTemperatureUnit(unit) {
   const targetUnit = unit || CONFIG.temperature.unit;
-  return targetUnit === "fahrenheit" ? "°F" : "°C";
+  if (targetUnit === "fahrenheit") return "°F";
+  if (targetUnit === "kelvin") return "K";
+  return "°C";
 }
 
 /**

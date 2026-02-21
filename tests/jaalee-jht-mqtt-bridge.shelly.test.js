@@ -39,6 +39,15 @@ describe("convertTemperature()", function () {
   it("should convert -40°C to -40°F", function () {
     assert.equal(convertTemperature(-40, "fahrenheit"), -40);
   });
+  it("should convert 0°C to 273.15K", function () {
+    assert.equal(convertTemperature(0, "kelvin"), 273.15);
+  });
+  it("should convert -273.15°C to 0K (absolute zero)", function () {
+    assert.equal(convertTemperature(-273.15, "kelvin"), 0);
+  });
+  it("should convert 100°C to 373.15K", function () {
+    assert.equal(convertTemperature(100, "kelvin"), 373.15);
+  });
 });
 
 describe("validateSensorData()", function () {
@@ -114,6 +123,9 @@ describe("getTemperatureUnit()", function () {
   });
   it("should return °F for fahrenheit", function () {
     assert.equal(getTemperatureUnit("fahrenheit"), "°F");
+  });
+  it("should return K for kelvin", function () {
+    assert.equal(getTemperatureUnit("kelvin"), "K");
   });
   it("should default to °C without argument", function () {
     assert.equal(getTemperatureUnit(), "°C");
