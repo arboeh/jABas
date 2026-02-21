@@ -38,4 +38,13 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
           files: ./coverage/lcov.info
-          fail_ci_if_error: true # ← strengere Überprüfung
+          fail_ci_if_error: true
+
+      - name: Check Manifest Integrity
+        run: python tools/check-manifest-integrity.py
+
+      - name: Generate SHELLY_MJS.md
+        run: |
+          python tools/sync-manifest-json.py examples-manifest.json
+          git add SHELLY_MJS.md
+          git diff --staged --quiet || git commit -m "docs: regenerate SHELLY_MJS.md"
