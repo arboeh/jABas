@@ -64,3 +64,7 @@ npm run lint       # ESLint 0 errors
 ## License
 
 MIT © [arboeh](https://github.com/arboeh) – see [LICENSE](LICENSE)
+
+---
+
+> See [CHANGELOG](CHANGELOG.md) for version history.
