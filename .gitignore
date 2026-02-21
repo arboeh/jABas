@@ -30,7 +30,7 @@ desktop.ini
 *.swp
 *.swo
 # ALLTERCO Tools (optional)
-SHELLY_MJS.md
+!SHELLY_MJS.md
 # Runtime data
 .pnp.*
 .npm
