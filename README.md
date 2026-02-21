@@ -1,6 +1,6 @@
 # 🛠️ Scripts for Home Assistant
 
-**Community Collection: Scripts, Tools & Blueprints**
+**Scripts, Tools & Blueprints**
 
 [![HA](https://img.shields.io/badge/Home%20Assistant-blue.svg)](https://www.home-assistant.io/)
 [![Tests](https://github.com/arboeh/ha-scripts/actions/workflows/ci.yml/badge.svg)](https://github.com/arboeh/ha-scripts/actions)
@@ -30,5 +30,3 @@ curl -s https://raw.githubusercontent.com/arboeh/ha-scripts/main/scripts/shelly/
 - **40/40 Tests** ✅
 - **ESLint** 0 Errors ✅
 - **Coverage** 31% 📈
-
-**Beitrag**: PRs willkommen! [CONTRIBUTING.md](CONTRIBUTING.md)
