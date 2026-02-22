@@ -17,9 +17,9 @@
 
 ### Shelly mJS
 
-| Script                                                                 | Description                                                                             | Status        | Tests |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------- | ----- |
-| [Jaalee JHT BLE → MQTT](scripts/mqtt/mqtt-jaalee-jht-bridge.shelly.js) | Jaalee JHT temperature/humidity/battery via Shelly BLU Gateway → HA MQTT Auto-Discovery | ✅ Production | 66/66 |
+| Script | Description | Status | Tests |
+|---|---|---|---|
+| [Jaalee JHT BLE → MQTT](scripts/mqtt/README.mqtt-jaalee-jht-bridge.shelly.js.md) | Jaalee JHT temperature/humidity/battery via Shelly BLU Gateway → HA MQTT Auto-Discovery | ✅ Production | 66/66 |
 
 ## Planned _(someday, maybe...)_
 
@@ -32,7 +32,7 @@
 
 ## Deploy a Shelly Script
 
-1. Open the script from [`scripts/mqtt/`](scripts/mqtt/)
+1. Open the script from [`scripts/mqtt/`](scripts/mqtt/README.md)
 2. Copy the content
 3. In the Shelly web interface go to **Scripts → Create Script**
 4. Paste, save & start
@@ -66,4 +66,5 @@ MIT © [arboeh](https://github.com/arboeh) – see [LICENSE](LICENSE)
 
 ---
 
-> See [CHANGELOG](CHANGELOG.md) for version history.
+> See [CHANGELOG](CHANGELOG.md) for version history.  
+> Browse all scripts by category in [`scripts/mqtt/`](scripts/mqtt/README.md).
