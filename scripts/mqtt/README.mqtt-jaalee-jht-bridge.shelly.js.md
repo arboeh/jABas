@@ -22,32 +22,32 @@ Listens for BLE advertisements from Jaalee JHT temperature/humidity sensors and 
 
 ## Entities Created
 
-| Entity | Type | Default |
-|---|---|---|
-| `sensor.*_temperature` | Temperature (°C / °F / K) | ✅ enabled |
-| `sensor.*_humidity` | Humidity (%) | ✅ enabled |
-| `sensor.*_battery` | Battery level (%) | ✅ enabled |
-| `sensor.*_rssi` | Signal strength (dBm) | ⬜ optional |
-| `sensor.*_last_seen` | Last seen timestamp | ⬜ optional |
-| `sensor.*_link_quality` | Link quality (%) | ⬜ optional |
-| `sensor.*_data_age` | Data age (s) | ⬜ optional |
-| `binary_sensor.*_battery_low` | Low battery warning | ⬜ optional |
+| Entity                        | Type                      | Default     |
+| ----------------------------- | ------------------------- | ----------- |
+| `sensor.*_temperature`        | Temperature (°C / °F / K) | ✅ enabled  |
+| `sensor.*_humidity`           | Humidity (%)              | ✅ enabled  |
+| `sensor.*_battery`            | Battery level (%)         | ✅ enabled  |
+| `sensor.*_rssi`               | Signal strength (dBm)     | ⬜ optional |
+| `sensor.*_last_seen`          | Last seen timestamp       | ⬜ optional |
+| `sensor.*_link_quality`       | Link quality (%)          | ⬜ optional |
+| `sensor.*_data_age`           | Data age (s)              | ⬜ optional |
+| `binary_sensor.*_battery_low` | Low battery warning       | ⬜ optional |
 
 ## Configuration
 
 Edit the `CONFIG` object at the top of the script:
 
 ```javascript
-CONFIG.temperature.unit = 'celsius';      // 'celsius', 'fahrenheit' or 'kelvin'
+CONFIG.temperature.unit = "celsius"; // 'celsius', 'fahrenheit' or 'kelvin'
 
-CONFIG.mqtt.publish_rssi = true;          // Signal strength
-CONFIG.mqtt.publish_last_seen = true;     // Last seen timestamp
+CONFIG.mqtt.publish_rssi = true; // Signal strength
+CONFIG.mqtt.publish_last_seen = true; // Last seen timestamp
 CONFIG.mqtt.publish_link_quality = false; // Link quality 0–100%
-CONFIG.mqtt.publish_battery_low = false;  // Low battery binary sensor
-CONFIG.mqtt.publish_data_age = false;     // Data age in seconds
+CONFIG.mqtt.publish_battery_low = false; // Low battery binary sensor
+CONFIG.mqtt.publish_data_age = false; // Data age in seconds
 
-CONFIG.mqtt.sensor_timeout = 300;         // Seconds without update → offline
-CONFIG.mqtt.battery_low_threshold = 20;   // Battery % threshold for low battery
+CONFIG.mqtt.sensor_timeout = 300; // Seconds without update → offline
+CONFIG.mqtt.battery_low_threshold = 20; // Battery % threshold for low battery
 ```
 
 ### Known Devices (optional)
@@ -56,8 +56,8 @@ Assign friendly names to specific sensors by MAC address:
 
 ```javascript
 CONFIG.knownDevices = {
-  'AA:BB:CC:DD:EE:FF': 'Jaalee JHT Kitchen',
-  'AA:BB:CC:DD:EE:01': 'Jaalee JHT Living Room',
+  "AA:BB:CC:DD:EE:FF": "Jaalee JHT Kitchen",
+  "AA:BB:CC:DD:EE:01": "Jaalee JHT Living Room",
 };
 ```
 
@@ -72,7 +72,7 @@ Home Assistant entities are created automatically via MQTT Auto-Discovery after 
 ## Log Levels
 
 ```javascript
-CONFIG.logLevel = LOG_LEVELS.INFO;  // ERROR | WARN | INFO | DEBUG
+CONFIG.logLevel = LOG_LEVELS.INFO; // ERROR | WARN | INFO | DEBUG
 ```
 
 - `INFO` — Important events (sensor found, MQTT status)

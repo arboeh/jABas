@@ -17,8 +17,8 @@
 
 ### Shelly mJS
 
-| Script | Description | Status | Tests |
-|---|---|---|---|
+| Script                                                                           | Description                                                                             | Status        | Tests |
+| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------- | ----- |
 | [Jaalee JHT BLE → MQTT](scripts/mqtt/README.mqtt-jaalee-jht-bridge.shelly.js.md) | Jaalee JHT temperature/humidity/battery via Shelly BLU Gateway → HA MQTT Auto-Discovery | ✅ Production | 66/66 |
 
 ## Planned _(someday, maybe...)_

@@ -4,8 +4,8 @@ This folder contains Shelly scripts that bridge BLE sensor data to Home Assistan
 
 ## Available Scripts
 
-| Script | Description |
-|---|---|
+| Script                                                                             | Description                                                                                                     |
+| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | [`mqtt-jaalee-jht-bridge.shelly.js`](./README.mqtt-jaalee-jht-bridge.shelly.js.md) | Parses BLE advertisements from Jaalee JHT temperature/humidity sensors and publishes to Home Assistant via MQTT |
 
 ## Usage
