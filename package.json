@@ -128,7 +128,7 @@
     "he": "^1.2.0",
     "html-escaper": "^3.0.3",
     "ignore": "^7.0.5",
-    "import-fresh": "^3.3.1",
+    "import-fresh": "^4.0.0",
     "imurmurhash": "^0.1.4",
     "indent-string": "^5.0.0",
     "inflight": "^1.0.6",
