@@ -166,7 +166,7 @@
     "lodash.merge": "^4.6.2",
     "log-symbols": "^7.0.1",
     "loupe": "^3.2.1",
-    "lru-cache": "^11.2.6",
+    "lru-cache": "^11.2.7",
     "make-dir": "^5.1.0",
     "minimatch": "^10.2.3",
     "ms": "^2.1.3",
