@@ -59,7 +59,7 @@
     "argparse": "^2.0.1",
     "assertion-error": "^2.0.1",
     "balanced-match": "^4.0.4",
-    "baseline-browser-mapping": "^2.10.0",
+    "baseline-browser-mapping": "^2.10.11",
     "binary-extensions": "^3.1.0",
     "brace-expansion": "^5.0.4",
     "braces": "^3.0.3",
